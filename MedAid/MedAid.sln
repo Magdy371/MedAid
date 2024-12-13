@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedAid", "MedAid.csproj", "{9087CA59-3BF6-437B-BD93-292B47DE6CFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9087CA59-3BF6-437B-BD93-292B47DE6CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9087CA59-3BF6-437B-BD93-292B47DE6CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9087CA59-3BF6-437B-BD93-292B47DE6CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9087CA59-3BF6-437B-BD93-292B47DE6CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0D4F0C0-11E6-4C2C-B178-B6CC58DC009A}
+	EndGlobalSection
+EndGlobal
