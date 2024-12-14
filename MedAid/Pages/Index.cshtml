@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -7,4 +7,18 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5 text-center">
+    <img src="~/images/MedAidLogo.png" alt="MedAid Logo" width="150" height="150" class="mb-4">
+    <h1 class="display-4">MedAid</h1>
+    <p class="lead">Your trusted healthcare companion.</p>
+@*     <button class="btn btn-primary btn-lg">Get Started</button>*@
 </div>

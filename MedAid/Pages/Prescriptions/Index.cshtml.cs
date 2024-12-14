@@ -1,3 +1,4 @@
+#region OldScafoldingCode
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,16 @@ namespace MedAid.Pages_Prescriptions
             _context = context;
         }
 
-        public IList<Prescription> Prescription { get;set; } = default!;
+        public IList<Prescription> Prescription { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Prescription = await _context.Prescriptions.ToListAsync();
+            //Prescription = await _context.Prescriptions.ToListAsync();
+            Prescription = await _context.Prescriptions
+            .Include(p => p.Patient) // Load Patient navigation property
+            .ToListAsync();
         }
     }
 }
+#endregion
+

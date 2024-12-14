@@ -14,7 +14,10 @@ namespace MedAid.Models
         public string DoctorId { get; set; } // Link to the Doctor user
 
         [Required]
-        public string PatientId { get; set; } // Link to the Patient user
+        public int PatientId { get; set; } // Foreign key to the Patient (Updated to int)
+
+        [ForeignKey("PatientId")]
+        public virtual Patient Patient { get; set; } // Navigation property
 
         [Required]
         public string MedicationName { get; set; }
@@ -28,4 +31,5 @@ namespace MedAid.Models
 
         public DateTime? UpdatedAt { get; set; }
     }
+
 }

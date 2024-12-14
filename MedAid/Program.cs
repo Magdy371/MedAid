@@ -41,6 +41,7 @@ namespace MedAid
                 var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                 await SeedData.Initialize(services, context, userManager, roleManager);
+                await PatientSeedData.Initialize(services, context, userManager, roleManager);
             }
 
             // Configure the HTTP request pipeline.
