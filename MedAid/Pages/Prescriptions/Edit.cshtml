@@ -2,65 +2,64 @@
 @model MedAid.Pages_Prescriptions.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Prescription";
 }
 
-<h1>Edit</h1>
+<div class="container mt-5">
+    <h1>Edit Prescription</h1>
+    <hr />
 
-<h4>Prescription</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Prescription.Id" />
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="Prescription.DoctorId" class="control-label"></label>
-                <input asp-for="Prescription.DoctorId" class="form-control" />
-                <span asp-validation-for="Prescription.DoctorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="Prescription.PatientId" class="control-label"></label>
-                <input asp-for="Prescription.PatientId" class="form-control" />
-                <span asp-validation-for="Prescription.PatientId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="Prescription.MedicationName" class="control-label"></label>
-                <input asp-for="Prescription.MedicationName" class="form-control" />
-                <span asp-validation-for="Prescription.MedicationName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="Prescription.Dosage" class="control-label"></label>
-                <input asp-for="Prescription.Dosage" class="form-control" />
-                <span asp-validation-for="Prescription.Dosage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prescription.Frequency" class="control-label"></label>
-                <input asp-for="Prescription.Frequency" class="form-control" />
-                <span asp-validation-for="Prescription.Frequency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prescription.CreatedAt" class="control-label"></label>
-                <input asp-for="Prescription.CreatedAt" class="form-control" />
-                <span asp-validation-for="Prescription.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prescription.UpdatedAt" class="control-label"></label>
-                <input asp-for="Prescription.UpdatedAt" class="form-control" />
-                <span asp-validation-for="Prescription.UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Prescription.Id" />
+
+        <div class="form-group">
+            <label asp-for="Prescription.DoctorId" class="control-label"></label>
+            <input asp-for="Prescription.DoctorId" class="form-control" readonly />
+            <span asp-validation-for="Prescription.DoctorId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.PatientId" class="control-label"></label>
+            <select asp-for="Prescription.PatientId" asp-items="Model.Patients" class="form-control">
+                <option value="">Select Patient</option>
+            </select>
+            <span asp-validation-for="Prescription.PatientId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.MedicationName" class="control-label"></label>
+            <input asp-for="Prescription.MedicationName" class="form-control" />
+            <span asp-validation-for="Prescription.MedicationName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.Dosage" class="control-label"></label>
+            <input asp-for="Prescription.Dosage" class="form-control" />
+            <span asp-validation-for="Prescription.Dosage" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.Frequency" class="control-label"></label>
+            <input asp-for="Prescription.Frequency" class="form-control" />
+            <span asp-validation-for="Prescription.Frequency" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.CreatedAt" class="control-label"></label>
+            <input asp-for="Prescription.CreatedAt" class="form-control" readonly />
+            <span asp-validation-for="Prescription.CreatedAt" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prescription.UpdatedAt" class="control-label"></label>
+            <input asp-for="Prescription.UpdatedAt" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+            <span asp-validation-for="Prescription.UpdatedAt" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
 </div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-

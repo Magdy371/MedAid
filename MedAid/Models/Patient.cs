@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MedAid.Models
 {
@@ -14,5 +15,6 @@ namespace MedAid.Models
         // Add any other patient-specific fields you need
 
         public virtual IdentityUser User { get; set; }  // Navigation property to Identity User
+
     }
 }

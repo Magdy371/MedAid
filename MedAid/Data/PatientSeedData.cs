@@ -5,6 +5,7 @@ namespace MedAid.Data
 {
     public class PatientSeedData
     {
+#nullable disable
         public static async Task Initialize(IServiceProvider serviceProvider, ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             // Ensure the database is created
