@@ -2,60 +2,77 @@
 @model MedAid.Pages_Prescriptions.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Prescription Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <h1>@ViewData["Title"]</h1>
 
-<div>
-    <h4>Prescription</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.DoctorId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.DoctorId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.PatientId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.PatientId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.MedicationName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.MedicationName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.Dosage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.Dosage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.Frequency)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.Frequency)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prescription.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Prescription.UpdatedAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Prescription.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <div class="card">
+        <h4 class="card-header">Prescription Information</h4>
+        <div class="card-body">
+            <dl class="row">
+                <!-- Doctor Name -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.DoctorName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.DoctorName)
+                </dd>
+
+                <!-- Patient Full Name -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.Patient)
+                </dt>
+                <dd class="col-sm-10">
+                    @($"{Model.Prescription.Patient.FirstName} {Model.Prescription.Patient.LastName}")
+                </dd>
+
+                <!-- Medication Name -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.MedicationName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.MedicationName)
+                </dd>
+
+                <!-- Dosage -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.Dosage)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.Dosage)
+                </dd>
+
+                <!-- Frequency -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.Frequency)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.Frequency)
+                </dd>
+
+                <!-- Created At -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.CreatedAt)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.CreatedAt)
+                </dd>
+
+                <!-- Updated At -->
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prescription.UpdatedAt)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prescription.UpdatedAt)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-page="./Edit" asp-route-id="@Model.Prescription.Id" class="btn btn-primary">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
 </div>

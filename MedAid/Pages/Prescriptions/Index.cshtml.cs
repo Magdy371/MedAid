@@ -24,13 +24,36 @@ namespace MedAid.Pages_Prescriptions
 
         public IList<Prescription> Prescription { get; set; } = default!;
 
+        //public async Task OnGetAsync()
+        //{
+        //    //Prescription = await _context.Prescriptions.ToListAsync();
+        //    Prescription = await _context.Prescriptions
+        //    .Include(p => p.Patient) // Load Patient navigation property
+        //    .ToListAsync();
+        //}
+
         public async Task OnGetAsync()
         {
-            //Prescription = await _context.Prescriptions.ToListAsync();
+            // Load prescriptions with related patients
             Prescription = await _context.Prescriptions
-            .Include(p => p.Patient) // Load Patient navigation property
-            .ToListAsync();
+                .Include(p => p.Patient) // Load patient details
+                .ToListAsync();
+
+            // Fetch all unique DoctorIds from the prescriptions
+            var doctorIds = Prescription.Select(p => p.DoctorId).Distinct();
+
+            // Load doctor usernames
+            var doctorNames = await _context.Users
+                .Where(user => doctorIds.Contains(user.Id))
+                .ToDictionaryAsync(user => user.Id, user => user.UserName); // Adjust if you have FullName
+
+            // Add DoctorName to each prescription
+            foreach (var prescription in Prescription)
+            {
+                prescription.DoctorName = doctorNames[prescription.DoctorId]; // Temporary property
+            }
         }
+
     }
 }
 #endregion

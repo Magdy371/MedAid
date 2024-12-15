@@ -35,3 +35,36 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
 }
+
+
+/*This Is Inex for CRUD Operations*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.table {
+    font-size: 14px;
+}
+
+.thead-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+}
+
+/*This section for Prescription detailed page*/
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f0f0f0;
+}
+
+.card-body {
+    padding: 20px;
+}
